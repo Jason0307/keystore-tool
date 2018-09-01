@@ -25,8 +25,8 @@ public class KeyStoreTool {
         Map<String, Object> values = new HashMap<>();
         values.put("kty", rsa.getAlgorithm()); 
         values.put("kid", "wso2carbon");
-        values.put("n", Base64.getUrlEncoder().encodeToString(rsa.getModulus().toString().getBytes()));
-        values.put("e", Base64.getUrlEncoder().encodeToString(rsa.getPublicExponent().toString().getBytes()));
+        values.put("n", Base64.getUrlEncoder().encodeToString(rsa.getModulus().toByteArray()));
+        values.put("e", Base64.getUrlEncoder().encodeToString(rsa.getPublicExponent().toByteArray()));
         values.put("alg", "RS256");
         values.put("use", "sig");
         return values;
